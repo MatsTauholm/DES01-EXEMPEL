@@ -18,7 +18,6 @@ public class EnemyBehavior : MonoBehaviour
         knockback = GetComponent<KnockBack>();
     }
 
-
     void Start()
     {
         currentHealth = maxHealth;
@@ -27,7 +26,8 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
-        if(!knockback.isBeingKnockedBack)
+        //Only move if not being knocked back
+        if (!knockback.isBeingKnockedBack)
         {
             rb.linearVelocity = new Vector2(-speed, rb.linearVelocity.y);
         }
@@ -37,6 +37,7 @@ public class EnemyBehavior : MonoBehaviour
     public void TakeDamage(int damage, Vector2 hitDirection)
     {
         currentHealth -= damage;
+
         // Check if health is depleted
         if (currentHealth <= 0)
         {

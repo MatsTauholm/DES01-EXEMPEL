@@ -17,6 +17,7 @@ public class Sawblade : MonoBehaviour
         sawblade.transform.DOLocalMove(new Vector3(5,0,0),moveTime)
             .SetEase(linearEase)
             .SetLoops(-1, LoopType.Yoyo);
+
         sawblade.transform.DOLocalRotate(new Vector3(0,0,360),rotateTime,RotateMode.FastBeyond360)
             .SetEase(angularEase)
             .SetLoops(-1, LoopType.Restart);    

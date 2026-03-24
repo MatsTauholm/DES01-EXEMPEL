@@ -27,7 +27,7 @@ public class PlayerShooting : MonoBehaviour
         gunKickback = FindFirstObjectByType<GunKickback>();
         playerInput = GetComponent<PlayerInput>();
         muzzleFlashSprite = muzzleFlash.GetComponent<SpriteRenderer>();
-        fireAction = playerInput.actions["Fire"];
+        fireAction = playerInput.actions["Attack"];
     }
 
     void OnEnable()

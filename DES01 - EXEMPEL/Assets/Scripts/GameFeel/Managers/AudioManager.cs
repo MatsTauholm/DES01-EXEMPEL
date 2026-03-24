@@ -3,7 +3,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance; // Static reference
-    public AudioSource audioSource;       // Reference to AudioSource
+    public AudioSource audioSource;      // Reference to AudioSource
 
     private void Awake()
     {
@@ -27,4 +27,11 @@ public class AudioManager : MonoBehaviour
             Instance.audioSource.PlayOneShot(clip);
         }
     }
+
+    // Static method to play a sound
+    public static void StopSound()
+    {
+         Instance.audioSource.Stop();
+    }
+
 }

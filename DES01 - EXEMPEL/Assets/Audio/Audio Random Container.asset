@@ -28,22 +28,22 @@ AudioRandomContainer:
   m_PrefabAsset: {fileID: 0}
   m_Name: Audio Random Container
   m_Volume: 0
-  m_Pitch: 33
+  m_Pitch: 0
   m_AutomaticTriggerTime: 0
   m_LoopCount: 1
   m_VolumeRandomizationRange: {x: 0, y: 0}
-  m_PitchRandomizationRange: {x: -108.67924, y: 126.79239}
+  m_PitchRandomizationRange: {x: -285.60236, y: 234.48471}
   m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
   m_LoopCountRandomizationRange: {x: 0, y: 0}
   m_Elements:
   - {fileID: 5146642697730963689}
   - {fileID: 7900273044144097234}
   - {fileID: 4905905032127257201}
-  m_AvoidRepeatingLast: 1
+  m_AvoidRepeatingLast: 2
   m_PlaybackMode: 2
   m_TriggerMode: 1
   m_AutomaticTriggerMode: 1
-  m_LoopMode: 1
+  m_LoopMode: 2
   m_VolumeRandomizationEnabled: 0
   m_PitchRandomizationEnabled: 1
   m_AutomaticTriggerTimeRandomizationEnabled: 0

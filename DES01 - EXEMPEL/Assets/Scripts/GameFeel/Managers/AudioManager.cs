@@ -1,23 +1,46 @@
 using UnityEngine;
-
+using System.Collections;
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance; // Static reference
-    public AudioSource audioSource;      // Reference to AudioSource
+    public static AudioManager instance; // Static reference
+    [SerializeField] AudioSource musicSource;
 
-    // Static method to play a sound
-    public static void PlaySound(AudioClip clip)
+    private void Awake()
     {
-        if (Instance != null && clip != null)
+        if (instance == null)
         {
-            Instance.audioSource.PlayOneShot(clip);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
     // Static method to play a sound
-    public static void StopSound()
+    public void PlaySFX(AudioClip clip)
     {
-         Instance.audioSource.Stop();
+        if (clip != null)
+        {
+            StartCoroutine(PlaySFXCoroutine(clip));  
+        }
+    }
+    private IEnumerator PlaySFXCoroutine(AudioClip clip)
+    {
+        AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
+        sfxSource.clip = clip;
+
+        yield return new WaitForSeconds(clip.length);
+        Destroy(sfxSource);
     }
 
+    public static void PlayMusic(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            instance.musicSource.clip = clip;
+            instance.musicSource.Play();
+        }
+    }
 }

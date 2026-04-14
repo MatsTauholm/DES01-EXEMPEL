@@ -34,11 +34,11 @@ public class EnemyPunch : MonoBehaviour
         direction = (player.position - transform.position).normalized; //Find the direction from the player to the enemy
         float distanceToPlayer = Vector2.Distance(transform.position, player.position); //Check distance
 
-        if (distanceToPlayer > stopDistance)
+        if (distanceToPlayer > stopDistance) //If the player is far enough, follow them
         {
             FollowPlayer();
         }
-        else
+        else //If close enough, punch
         {
             if (!isPunching)
             {
@@ -48,7 +48,7 @@ public class EnemyPunch : MonoBehaviour
         
     }
 
-    void FollowPlayer()
+    private void FollowPlayer() 
     {
         rb.linearVelocity = moveSpeed * direction;
 
@@ -65,7 +65,7 @@ public class EnemyPunch : MonoBehaviour
         }
     }
 
-    void StartPunch()
+    private void StartPunch()
     {
         isPunching = true;
 

@@ -6,16 +6,16 @@ using Unity.VisualScripting;
 
 public class EvilHead : MonoBehaviour
 {
-    [SerializeField] Transform[] ninjaStars;
-    [SerializeField] Vector2 aimPosition;
-    [SerializeField] float minMoveTime, maxMoveTime;
+    [SerializeField] private Transform[] ninjaStars;
+    [SerializeField] private Vector2 aimPosition;
+    [SerializeField] private float minMoveTime, maxMoveTime;
 
     void Start()
     {
         ShootStars();
     }
 
-    void ShootStars()
+    private void ShootStars()
     {
         //Create a sequence
         var sequence = DOTween.Sequence();
@@ -31,7 +31,7 @@ public class EvilHead : MonoBehaviour
         sequence.OnComplete(Fade);
     }
 
-    void Fade()
+    private void Fade()
     {
         //Shake then fade out each ninja star
         foreach (var ninjaStar in ninjaStars)

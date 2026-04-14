@@ -28,10 +28,9 @@ public class PlayerMovement : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
-    private void OnJump()
+    private void OnJump(InputValue button)
     {
-        if (isGrounded)
-        { isJumping = true; }    
+        isJumping = button.isPressed;
     }
 
     private void Update()
@@ -49,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
         if (isJumping && !knockback.isBeingKnockedBack)
         {
             rb.linearVelocity += (new Vector2(0f, jumpSpeed));
-            isJumping = false;
         }
 
         if (!isGrounded)

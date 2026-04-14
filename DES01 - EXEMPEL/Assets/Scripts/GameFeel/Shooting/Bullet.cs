@@ -32,10 +32,10 @@ public class Bullet : MonoBehaviour
         Vector2 dir = rb.linearVelocity;
 
         if (dir != Vector2.zero)
-            transform.right = dir;   // Or transform.right = dir;
+            transform.right = dir;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.TryGetComponent<EnemyBehavior>(out EnemyBehavior enemyBehavior))
         {

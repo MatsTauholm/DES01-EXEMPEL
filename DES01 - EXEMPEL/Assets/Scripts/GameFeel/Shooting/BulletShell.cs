@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class BulletShell : MonoBehaviour
 {
-    [SerializeField] float MaxEjectForceX = 3;
-    [SerializeField] float MinEjectForceX = 3;
-    [SerializeField] float MaxEjectForceY = -3;
-    [SerializeField] float MinEjectForceY = -3;
+    [SerializeField] private float MaxEjectForceX = 3;
+    [SerializeField] private float MinEjectForceX = 3;
+    [SerializeField] private float MaxEjectForceY = -3;
+    [SerializeField] private float MinEjectForceY = -3;
 
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,6 +19,7 @@ public class BulletShell : MonoBehaviour
 
     private void AddForce()
     {
+        // Apply random eject force within specified ranges, then add impulse force to the rigidbody
         var _ejectForce = new Vector2(UnityEngine.Random.Range(MinEjectForceX, MaxEjectForceX), UnityEngine.Random.Range(MinEjectForceY, MaxEjectForceY));
         rb.AddForce(_ejectForce, ForceMode2D.Impulse);
     }

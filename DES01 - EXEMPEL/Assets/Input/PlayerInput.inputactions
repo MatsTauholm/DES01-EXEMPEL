@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "PlayerInput",
     "maps": [
         {
@@ -24,8 +25,8 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
-                    "type": "Value",
+                    "name": "Attack",
+                    "type": "Button",
                     "id": "ea200dc9-053c-4a9f-8b7f-66ad6a08c101",
                     "expectedControlType": "",
                     "processors": "",
@@ -36,7 +37,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "10782d12-c51d-44a0-be89-6a344f16e62a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -215,7 +216,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Fire",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -226,7 +227,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Fire",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -237,7 +238,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
-                    "action": "Fire",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -248,7 +249,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Fire",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -259,7 +260,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Fire",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -271,6 +272,34 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "QTE",
+            "id": "3cd3cd5f-f4da-4a15-82c2-b753b62d2a47",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "69f0e3a7-d4d6-475e-9fe5-74b84e648770",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "245121d6-5b5b-4573-9488-ccfb1db98836",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

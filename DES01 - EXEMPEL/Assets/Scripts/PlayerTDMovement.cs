@@ -7,7 +7,7 @@ public class PlayerTDMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
     private Vector2 moveInput;
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     private void Awake()
     {
@@ -21,14 +21,18 @@ public class PlayerTDMovement : MonoBehaviour
 
     void Update()
     {
-        Run();
+        Move();
+        FlipSprite();
     }
 
-    void Run()
+    private void Move()
     {
         Vector2 playerVelocity = moveInput * moveSpeed;
         rb.linearVelocity = playerVelocity;
+    }
 
+    private void FlipSprite()
+    {
         if (moveInput.x != 0)
         {
             Vector3 scale = transform.localScale;

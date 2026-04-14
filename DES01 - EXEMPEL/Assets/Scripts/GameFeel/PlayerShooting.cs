@@ -27,7 +27,7 @@ public class PlayerShooting : MonoBehaviour
         gunKickback = FindFirstObjectByType<GunKickback>();
         playerInput = GetComponent<PlayerInput>();
         muzzleFlashSprite = muzzleFlash.GetComponent<SpriteRenderer>();
-        fireAction = playerInput.actions["Fire"];
+        fireAction = playerInput.actions["Attack"];
     }
 
     void OnEnable()
@@ -67,7 +67,7 @@ public class PlayerShooting : MonoBehaviour
         {
             StartCoroutine(MuzzleFlash());
             gunKickback.PlayKickback();
-            AudioManager.PlaySound(shoot);
+            AudioManager.instance.PlaySFX(shoot);
             GameObject newBullet = Instantiate(bullet, muzzleFlash.transform.position, Quaternion.Euler(0, 0, transform.localScale.x >= 0 ? 0 : 180));
             GameObject newbulletShell = Instantiate(bulletShell, gun.transform.position, gun.transform.rotation);
         }           

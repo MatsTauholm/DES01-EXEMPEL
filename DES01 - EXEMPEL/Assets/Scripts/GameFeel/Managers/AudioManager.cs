@@ -1,17 +1,16 @@
 using UnityEngine;
-
+using System.Collections;
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance; // Static reference
-    public AudioSource audioSource;       // Reference to AudioSource
+    public static AudioManager instance; // Static reference
+    [SerializeField] AudioSource musicSource;
 
     private void Awake()
     {
-        // Singleton pattern: keep only one instance
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Persist across scenes
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -20,11 +19,28 @@ public class AudioManager : MonoBehaviour
     }
 
     // Static method to play a sound
-    public static void PlaySound(AudioClip clip)
+    public void PlaySFX(AudioClip clip)
     {
-        if (Instance != null && clip != null)
+        if (clip != null)
         {
-            Instance.audioSource.PlayOneShot(clip);
+            StartCoroutine(PlaySFXCoroutine(clip));  
+        }
+    }
+    private IEnumerator PlaySFXCoroutine(AudioClip clip)
+    {
+        AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
+        sfxSource.clip = clip;
+
+        yield return new WaitForSeconds(clip.length);
+        Destroy(sfxSource);
+    }
+
+    public static void PlayMusic(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            instance.musicSource.clip = clip;
+            instance.musicSource.Play();
         }
     }
 }

@@ -278,6 +278,34 @@
             ]
         },
         {
+            "name": "QTE",
+            "id": "3cd3cd5f-f4da-4a15-82c2-b753b62d2a47",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "69f0e3a7-d4d6-475e-9fe5-74b84e648770",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "245121d6-5b5b-4573-9488-ccfb1db98836",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "UI",
             "id": "3d90ccd6-9ee2-49fb-b855-50ba17f57f7b",
             "actions": [

@@ -24,7 +24,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Awake()
     {
-        gunKickback = FindFirstObjectByType<GunKickback>();
+        gunKickback = FindAnyObjectByType<GunKickback>();
         playerInput = GetComponent<PlayerInput>();
         muzzleFlashSprite = muzzleFlash.GetComponent<SpriteRenderer>();
         fireAction = playerInput.actions["Attack"];

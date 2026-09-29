@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Windows.Speech;
 
@@ -21,11 +22,11 @@ public class VoiceRecognition : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Keyboard.current[Key.V].wasPressedThisFrame)
         {
             keywordRecognizer.Start();
         }
-        else if (Input.GetKeyUp(KeyCode.V))
+        else if (Keyboard.current[Key.V].wasReleasedThisFrame)
         {
             keywordRecognizer.Stop();
         }

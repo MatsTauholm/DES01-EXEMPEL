@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BreakObject : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class BreakObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // Example trigger, replace with your actual condition
+        if (Keyboard.current.spaceKey.wasPressedThisFrame) // Example trigger, replace with your actual condition
         {
             Break();
         }

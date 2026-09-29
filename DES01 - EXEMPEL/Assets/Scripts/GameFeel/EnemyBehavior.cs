@@ -21,7 +21,7 @@ public class EnemyBehavior : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        timeFreezer = FindFirstObjectByType<TimeFreezer>();
+        timeFreezer = FindAnyObjectByType<TimeFreezer>();
     }
 
     void Update()

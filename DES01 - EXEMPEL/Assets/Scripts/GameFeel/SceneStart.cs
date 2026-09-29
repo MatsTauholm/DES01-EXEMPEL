@@ -22,7 +22,7 @@ public class SceneStart : MonoBehaviour
 
     private void Awake()
     {
-        EffectManager effectManager = FindFirstObjectByType<EffectManager>();
+        EffectManager effectManager = FindAnyObjectByType<EffectManager>();
         if (effectManager.LevelTween == false)
         {
             this.enabled = false;

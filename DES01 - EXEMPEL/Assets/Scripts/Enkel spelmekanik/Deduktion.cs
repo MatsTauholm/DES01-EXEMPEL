@@ -37,6 +37,7 @@ public class Deduktion : MonoBehaviour
     private void Success()
     {
         Debug.Log("Correct combination!");
+        pressedButtons.Clear(); // reset puzzle
     }
 
     private void FailPuzzle()

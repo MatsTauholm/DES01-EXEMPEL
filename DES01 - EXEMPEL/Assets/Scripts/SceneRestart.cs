@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class SceneRestart : MonoBehaviour
 {
-    private void Update()
+
+    void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        Restart();
+    }
+
+    private void Restart()
+    {
+        if(Keyboard.current.rKey.isPressed)
         {
-            Scene currentScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currentScene.name);
-        }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }  
     }
 }

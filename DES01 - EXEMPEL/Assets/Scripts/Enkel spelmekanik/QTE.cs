@@ -5,11 +5,11 @@ using UnityEngine.UIElements;
 
 public class QTE : MonoBehaviour
 {
-    [SerializeField] Transform pointA;
-    [SerializeField] Transform pointB;
-    [SerializeField] RectTransform[] safeZones;
-    [SerializeField] float smoothTime = 3f;
-    [SerializeField] float maxSpeed = 10f;
+    [SerializeField] private Transform pointA;
+    [SerializeField] private Transform pointB;
+    [SerializeField] private RectTransform[] safeZones;
+    [SerializeField] private float smoothTime = 3f;
+    [SerializeField] private float maxSpeed = 10f;
 
     private bool isSafe;
     private RectTransform pointerTransform;
@@ -31,7 +31,7 @@ public class QTE : MonoBehaviour
         }
     }
 
-    private void CheckSuccess()
+    private void CheckSuccess() //Check if the pointer is within any of the safe zones when the button is pressed
     {
         foreach (RectTransform safeZone in safeZones) //Loop through all the safe zones
         {

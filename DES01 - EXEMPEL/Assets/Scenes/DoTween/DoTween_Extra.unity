@@ -233,6 +233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Top Down
       objectReference: {fileID: 0}
+    - target: {fileID: 5471750474554142541, guid: 0a1a46a05f04f4a4db3167dac1ea3ae9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

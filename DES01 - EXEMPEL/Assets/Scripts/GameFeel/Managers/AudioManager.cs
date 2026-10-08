@@ -5,19 +5,6 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance; // Static reference
     [SerializeField] AudioSource musicSource;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     // Static method to play a sound
     public void PlaySFX(AudioClip clip)
     {

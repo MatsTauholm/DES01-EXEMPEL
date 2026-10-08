@@ -6,6 +6,7 @@ public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField] private float speed = 2.0f;
     [SerializeField] private int maxHealth = 7;
+    [SerializeField] GameObject deadEnemy;
 
     private int currentHealth;
     private Rigidbody2D rb;
@@ -42,6 +43,7 @@ public class EnemyBehavior : MonoBehaviour
         if (currentHealth <= 0)
         {
             timeFreezer.Freeze(0.05f);
+            Instantiate(deadEnemy, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 

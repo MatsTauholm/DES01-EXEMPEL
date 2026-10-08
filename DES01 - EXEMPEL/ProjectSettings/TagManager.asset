@@ -19,7 +19,7 @@ TagManager:
   - Bullets
   - Player
   - Door
-  - 
+  - VFX
   - 
   - 
   - 
@@ -60,3 +60,4 @@ TagManager:
     locked: 0
   m_RenderingLayers:
   - Default
+  m_MigratedRenderPipelines: []

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -41,25 +42,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        isGrounded = rb.IsTouching(groundFlter);
-
-        if (isJumping && !knockback.isBeingKnockedBack)
-        {
-            rb.linearVelocity += (new Vector2(0f, jumpSpeed));
-        }
-
-        if (!isGrounded)
-        {
-            ani.SetBool("isJumping", true);
-        }
-        else
-        {
-            ani.SetBool("isJumping", false);
-        }
-    }
-
     private void Run()
     {
         Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
@@ -77,6 +59,36 @@ public class PlayerMovement : MonoBehaviour
             ani.SetBool("isRunning", false);
         }
     }
+
+    private void FixedUpdate()
+    {
+        GroundCheck();
+        Jump();
+    }
+
+    private void GroundCheck() // Check if the player is grounded
+    {
+        isGrounded = rb.IsTouching(groundFlter);
+    }
+
+    private void Jump() // Handle jumping logic
+    {
+        if (isJumping && !knockback.isBeingKnockedBack)
+        {
+            rb.linearVelocity += (new Vector2(0f, jumpSpeed));
+            isJumping = false;
+        }
+
+        if (!isGrounded)
+        {
+            ani.SetBool("isJumping", true);
+        }
+        else
+        {
+            ani.SetBool("isJumping", false);
+        }
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

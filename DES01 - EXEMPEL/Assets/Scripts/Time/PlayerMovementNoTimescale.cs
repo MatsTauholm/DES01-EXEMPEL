@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms;
 
 public class PlayerMovementNoTimescale : MonoBehaviour
 {
-    [SerializeField] float acceleration = 50f;     // Force when pressing a direction
-    [SerializeField] float deceleration = 30f;     // Force when no input, slows down
+    [SerializeField] float acceleration = 5f;     // Force when pressing a direction
+    [SerializeField] float deceleration = 3f;     // Force when no input, slows down
     [SerializeField] float maxSpeed = 10f;
     [SerializeField] float jumpForce = 5f;
     [SerializeField] ContactFilter2D groundFilter;
@@ -42,6 +43,34 @@ public class PlayerMovementNoTimescale : MonoBehaviour
 
     void Update()
     {
+        Move();
+        FlipSprite();
+        
+    }
+
+    private void Move()
+    {
+        //Horizontal movement
+        if (moveInput.x != 0)
+        {
+            //Accelerate
+            rb.linearVelocity = new Vector2(moveInput.x * acceleration * Time.fixedUnscaledDeltaTime, 0f);
+        }
+        else
+        {
+            //Decelerate
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x * (1 - deceleration * Time.fixedUnscaledDeltaTime), rb.linearVelocity.y);
+        }
+
+        // Clamp max horizontal velocity
+        if (Mathf.Abs(rb.linearVelocity.x) > maxSpeed)
+        {
+            rb.linearVelocity = new Vector2(Mathf.Sign(rb.linearVelocity.x) * maxSpeed, rb.linearVelocity.y);
+        }
+    }
+
+    private void FlipSprite()
+    {
         //Mirror the sprite if moving left
         if (moveInput.x != 0)
         {
@@ -54,10 +83,13 @@ public class PlayerMovementNoTimescale : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Ground check
-        isGrounded = rb.IsTouching(groundFilter);
-        Move();
+        GroundCheck();
         Jump();
+    }
+
+    void GroundCheck() //Ground check
+    {
+        isGrounded = rb.IsTouching(groundFilter);
     }
 
     private void Jump()
@@ -67,27 +99,6 @@ public class PlayerMovementNoTimescale : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
             shouldJump = false;
-        }
-    }
-
-    private void Move()
-    {
-        //Horizontal movement
-        if (moveInput.x != 0)
-        {
-            //Accelerate
-            rb.AddForce(new Vector2(moveInput.x * acceleration, 0f), ForceMode2D.Force);
-        }
-        else
-        {
-            //Decelerate
-            rb.AddForce(new Vector2(-rb.linearVelocity.x * deceleration, 0f), ForceMode2D.Force);
-        }
-
-        // Clamp max horizontal velocity
-        if (Mathf.Abs(rb.linearVelocity.x) > maxSpeed)
-        {
-            rb.linearVelocity = new Vector2(Mathf.Sign(rb.linearVelocity.x) * maxSpeed, rb.linearVelocity.y);
         }
     }
 }

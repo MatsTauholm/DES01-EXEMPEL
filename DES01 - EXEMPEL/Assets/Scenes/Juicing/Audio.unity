@@ -129,13 +129,14 @@ GameObject:
   m_Component:
   - component: {fileID: 327162376}
   - component: {fileID: 327162377}
+  - component: {fileID: 327162378}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &327162376
 Transform:
   m_ObjectHideFlags: 0
@@ -248,6 +249,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &327162378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327162375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91818bff23f474740b3a19eef138b2fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  normal: {fileID: 8578970403384483017, guid: d1ba82451ec31824faa9d448866a7a2f, type: 2}
+  messedUp: {fileID: -8665089413991339283, guid: d1ba82451ec31824faa9d448866a7a2f, type: 2}
+  fadeDuration: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   musicSource: {fileID: 1674158781}
+  sfxSource: {fileID: 0}
 --- !u!1 &854356159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,7 +1723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2000836905
 Transform:
   m_ObjectHideFlags: 0

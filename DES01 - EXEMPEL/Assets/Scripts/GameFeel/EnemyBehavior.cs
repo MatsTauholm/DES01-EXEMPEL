@@ -6,6 +6,7 @@ public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField] private float speed = 2.0f;
     [SerializeField] private int maxHealth = 7;
+    [SerializeField] ParticleSystem bloodParticles;
     [SerializeField] GameObject deadEnemy;
 
     private int currentHealth;
@@ -43,6 +44,7 @@ public class EnemyBehavior : MonoBehaviour
         if (currentHealth <= 0)
         {
             timeFreezer.Freeze(0.05f);
+            //bloodParticles.Play();
             Instantiate(deadEnemy, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

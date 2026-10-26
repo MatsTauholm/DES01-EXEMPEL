@@ -22,7 +22,6 @@ public class AudioManager : MonoBehaviour
     // Static method to play a sound
     public void PlaySFX(AudioClip clip)
     {
-        Debug.Log($"Request to play SFX: {clip.name}");
         sfxSource.clip = clip;
         sfxSource.Play();
         //if (clip != null)
@@ -33,7 +32,6 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator PlaySFXCoroutine(AudioClip clip)
     {
-        Debug.Log($"Playing SFX: {clip.name}");
         AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.clip = clip;
         sfxSource.Play();

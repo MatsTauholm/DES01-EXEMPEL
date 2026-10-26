@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 8290309468304887429}
   - component: {fileID: 2071177636736077124}
   - component: {fileID: 6030774623161113476}
+  - component: {fileID: 2686408302755137201}
   m_Layer: 9
   m_Name: Body Part 1
   m_TagString: Untagged
@@ -225,6 +226,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomForce
   minForce: 2
   maxForce: 5
+--- !u!114 &2686408302755137201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090795869912852149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295b839feb65ba74b99a847613ecc915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeMaterialAndDestroy
+  startDisolveTimer: 2
+  dissolveDuration: 1
+  disolveMaterial: {fileID: 2100000, guid: b9ce96b984a8c704d964d857af7782f8, type: 2}
 --- !u!1 &5536471500194927130
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +254,7 @@ GameObject:
   - component: {fileID: 8939439876642140242}
   - component: {fileID: 6229528498505278862}
   - component: {fileID: 8193376675947934505}
+  - component: {fileID: 4514507285665423748}
   m_Layer: 9
   m_Name: Body Part 4
   m_TagString: Untagged
@@ -420,6 +437,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomForce
   minForce: 2
   maxForce: 5
+--- !u!114 &4514507285665423748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536471500194927130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295b839feb65ba74b99a847613ecc915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeMaterialAndDestroy
+  startDisolveTimer: 2
+  dissolveDuration: 1
+  disolveMaterial: {fileID: 2100000, guid: b9ce96b984a8c704d964d857af7782f8, type: 2}
 --- !u!1 &6038614417113106881
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +465,7 @@ GameObject:
   - component: {fileID: 4533845200317485503}
   - component: {fileID: 6516226021541362970}
   - component: {fileID: 3426846354250986429}
+  - component: {fileID: 3790823117952416977}
   m_Layer: 9
   m_Name: Body Part 2
   m_TagString: Untagged
@@ -611,6 +644,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomForce
   minForce: 2
   maxForce: 5
+--- !u!114 &3790823117952416977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038614417113106881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295b839feb65ba74b99a847613ecc915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeMaterialAndDestroy
+  startDisolveTimer: 2
+  dissolveDuration: 1
+  disolveMaterial: {fileID: 2100000, guid: b9ce96b984a8c704d964d857af7782f8, type: 2}
 --- !u!1 &7149939295331356180
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +672,7 @@ GameObject:
   - component: {fileID: 6617602098954337198}
   - component: {fileID: 3463700785937204110}
   - component: {fileID: 191713943221686560}
+  - component: {fileID: 3801332527577797270}
   m_Layer: 9
   m_Name: Body Part 5
   m_TagString: Untagged
@@ -801,6 +850,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomForce
   minForce: 2
   maxForce: 5
+--- !u!114 &3801332527577797270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7149939295331356180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295b839feb65ba74b99a847613ecc915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeMaterialAndDestroy
+  startDisolveTimer: 2
+  dissolveDuration: 1
+  disolveMaterial: {fileID: 2100000, guid: b9ce96b984a8c704d964d857af7782f8, type: 2}
 --- !u!1 &8094662554071937539
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +878,7 @@ GameObject:
   - component: {fileID: 4399447538031871908}
   - component: {fileID: 7151815956406356560}
   - component: {fileID: 4475647649036416978}
+  - component: {fileID: 3117717888406078219}
   m_Layer: 9
   m_Name: Body Part 6
   m_TagString: Untagged
@@ -991,6 +1056,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomForce
   minForce: 2
   maxForce: 5
+--- !u!114 &3117717888406078219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8094662554071937539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295b839feb65ba74b99a847613ecc915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeMaterialAndDestroy
+  startDisolveTimer: 2
+  dissolveDuration: 1
+  disolveMaterial: {fileID: 2100000, guid: b9ce96b984a8c704d964d857af7782f8, type: 2}
 --- !u!1 &8428142769024593240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,6 +1084,7 @@ GameObject:
   - component: {fileID: 7380628591597840354}
   - component: {fileID: 5240580405396658820}
   - component: {fileID: 7241705217055864604}
+  - component: {fileID: 7104866884716595429}
   m_Layer: 9
   m_Name: Body Part 3
   m_TagString: Untagged
@@ -1188,3 +1269,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomForce
   minForce: 2
   maxForce: 5
+--- !u!114 &7104866884716595429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8428142769024593240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295b839feb65ba74b99a847613ecc915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeMaterialAndDestroy
+  startDisolveTimer: 2
+  dissolveDuration: 1
+  disolveMaterial: {fileID: 2100000, guid: b9ce96b984a8c704d964d857af7782f8, type: 2}

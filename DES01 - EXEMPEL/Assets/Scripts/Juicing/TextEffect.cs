@@ -17,22 +17,20 @@ public class TextEffect : MonoBehaviour
     [SerializeField] private float letterDelay = 0.05f;
     [SerializeField] private Color targetColor = Color.red;
 
-    [Header("Letter Trails")]
-    [SerializeField] private Material trailMaterial;
-    [SerializeField] private float trailWidth = 2f;
-    [SerializeField] private float trailLifetime = 0.3f;
-
     public void ShowText()
     {
-        text.gameObject.SetActive(true);
-
-        if (audioSource != null && bassSound != null)
+        if (!text.gameObject.activeSelf)
         {
-            audioSource.clip = bassSound;
-            audioSource.Play();
-        }
+            text.gameObject.SetActive(true);
 
-        StartCoroutine(AnimateText());
+            if (audioSource != null && bassSound != null)
+            {
+                audioSource.clip = bassSound;
+                audioSource.Play();
+            }
+
+            StartCoroutine(AnimateText());
+        }
     }
 
     private IEnumerator AnimateText()

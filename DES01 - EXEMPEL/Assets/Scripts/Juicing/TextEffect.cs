@@ -8,6 +8,7 @@ public class TextEffect : MonoBehaviour
     [Header("References")]
     [SerializeField] private TMP_Text text;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip bassSound;
 
     [Header("Settings")]
     [SerializeField] private float delay = 1f;
@@ -16,12 +17,20 @@ public class TextEffect : MonoBehaviour
     [SerializeField] private float letterDelay = 0.05f;
     [SerializeField] private Color targetColor = Color.red;
 
-    private void Start()
+    [Header("Letter Trails")]
+    [SerializeField] private Material trailMaterial;
+    [SerializeField] private float trailWidth = 2f;
+    [SerializeField] private float trailLifetime = 0.3f;
+
+    public void ShowText()
     {
         text.gameObject.SetActive(true);
 
-        if (audioSource != null)
+        if (audioSource != null && bassSound != null)
+        {
+            audioSource.clip = bassSound;
             audioSource.Play();
+        }
 
         StartCoroutine(AnimateText());
     }
@@ -52,12 +61,12 @@ public class TextEffect : MonoBehaviour
                 (Color32[])textInfo.meshInfo[i].colors32.Clone();
         }
 
-        // Give every letter a random direction.
+        // Every other letter moves in the opposite direction.
         float[] directions = new float[textInfo.characterCount];
 
         for (int i = 0; i < textInfo.characterCount; i++)
         {
-            directions[i] = Random.value < 0.5f ? 1f : -1f;
+            directions[i] = i % 2 == 0 ? 1f : -1f;
         }
 
         float elapsed = 0f;

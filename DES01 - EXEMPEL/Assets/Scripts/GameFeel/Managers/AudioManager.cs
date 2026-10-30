@@ -5,6 +5,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance; // Static reference
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
+    [SerializeField] AudioClip[] musicClips;
 
     void Awake()
     {

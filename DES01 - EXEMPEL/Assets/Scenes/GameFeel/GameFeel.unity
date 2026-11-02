@@ -164,6 +164,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShakeManager
   globalShakeForce: 1
+--- !u!1 &207080630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207080631}
+  m_Layer: 0
+  m_Name: Boss Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &207080631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207080630}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1099997, y: -0.3800001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 762565404}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &247185210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -247,6 +278,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4671115665440738405, guid: 073e19df29517944fab146422a742641, type: 3}
   m_PrefabInstance: {fileID: 247185210}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &273773007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 273773008}
+  m_Layer: 0
+  m_Name: -PARTICLES-
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &273773008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273773007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1893479637}
+  m_Father: {fileID: 1163002473}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &275952656
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,9 +320,10 @@ GameObject:
   m_Component:
   - component: {fileID: 275952657}
   - component: {fileID: 275952658}
+  - component: {fileID: 275952659}
   m_Layer: 0
   m_Name: Spot Light 2D
-  m_TagString: Untagged
+  m_TagString: Resetable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,7 +337,7 @@ Transform:
   m_GameObject: {fileID: 275952656}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.9843222, w: 0.17638004}
-  m_LocalPosition: {x: -14.07, y: 3.63, z: 0}
+  m_LocalPosition: {x: -14.07342, y: 4.215225, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -352,6 +416,21 @@ MonoBehaviour:
       type: {class: 'Provider2DCache`1[[UnityEngine.Rendering.Universal.Light2DProvider, Unity.RenderPipelines.Universal.2D.Runtime]]', ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data:
         m_Cache: []
+--- !u!114 &275952659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275952656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ecc498913f8f004bb0465fa12b5595c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightFlicker
+  flickerIntervalMin: 0.5
+  flickerIntervalMax: 0.75
+  offIntensity: 0
 --- !u!1 &325276228 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2268624304654919845, guid: 073e19df29517944fab146422a742641, type: 3}
@@ -1118,7 +1197,7 @@ MonoBehaviour:
     rid: 933642769231249408
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.28
+  m_Intensity: 0.25
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 000000007b6031c2ed843c101b916083d39dcbd9
@@ -1248,6 +1327,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1863075138}
+  - {fileID: 207080631}
   - {fileID: 3921655859687848755}
   - {fileID: 247185211}
   - {fileID: 1250103316}
@@ -1499,6 +1579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1002964177}
   - component: {fileID: 1002964178}
+  - component: {fileID: 1002964179}
   m_Layer: 0
   m_Name: Spot Light 2D (1)
   m_TagString: Untagged
@@ -1594,6 +1675,21 @@ MonoBehaviour:
       type: {class: 'Provider2DCache`1[[UnityEngine.Rendering.Universal.Light2DProvider, Unity.RenderPipelines.Universal.2D.Runtime]]', ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data:
         m_Cache: []
+--- !u!114 &1002964179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002964176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ecc498913f8f004bb0465fa12b5595c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightFlicker
+  flickerIntervalMin: 0.5
+  flickerIntervalMax: 0.75
+  offIntensity: 0
 --- !u!1 &1163002472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +1720,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1815840018}
+  - {fileID: 273773008}
   - {fileID: 1388699162}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1637,6 +1734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1217092661}
   - component: {fileID: 1217092662}
+  - component: {fileID: 1217092663}
   m_Layer: 0
   m_Name: Enemy Spawn Manager
   m_TagString: Untagged
@@ -1675,6 +1773,24 @@ MonoBehaviour:
   spawnPoint: {fileID: 1863075138}
   enemyCount: 7
   spawnDelay: 1
+--- !u!114 &1217092663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217092660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4648210b0575584b8ce2e6aef95b3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  enemiesAlive: 0
+  bossPrefab: {fileID: 1723414724954146775, guid: 4ef0b9aee42ae1a488ed95d5a647e410, type: 3}
+  bossSpawnPosition: {fileID: 207080631}
+  spawnEffectPrefab: {fileID: 2299747748734060381, guid: 667acda5583ee314cab403473d41f91f, type: 3}
+  effectPosition: {fileID: 207080631}
+  spawnDelay: 3
 --- !u!4 &1250103316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4671115665440738405, guid: 073e19df29517944fab146422a742641, type: 3}
@@ -1924,6 +2040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599982260}
   - component: {fileID: 1599982261}
+  - component: {fileID: 1599982262}
   m_Layer: 0
   m_Name: Spot Light 2D (2)
   m_TagString: Untagged
@@ -1966,7 +2083,7 @@ MonoBehaviour:
   m_SelectionSources:
     rid: 933643106628927584
   m_FalloffIntensity: 0.629
-  m_Color: {r: 0.4198113, g: 0.7849756, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2.19
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
@@ -2019,6 +2136,21 @@ MonoBehaviour:
       type: {class: 'Provider2DCache`1[[UnityEngine.Rendering.Universal.Light2DProvider, Unity.RenderPipelines.Universal.2D.Runtime]]', ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data:
         m_Cache: []
+--- !u!114 &1599982262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599982259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ecc498913f8f004bb0465fa12b5595c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightFlicker
+  flickerIntervalMin: 0.5
+  flickerIntervalMax: 0.75
+  offIntensity: 0
 --- !u!1 &1656516087
 GameObject:
   m_ObjectHideFlags: 0
@@ -2427,6 +2559,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 762565404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1893479636
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 273773008}
+    m_Modifications:
+    - target: {fileID: 2372634141719341673, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.944468
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372634141719341673, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9384058
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372634141719341673, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372634141719341673, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372634141719341673, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372634141719341673, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372634141719341673, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372634141719341673, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372634141719341673, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372634141719341673, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450949237702097226, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+      propertyPath: m_Name
+      value: SparksWithCollision
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+--- !u!4 &1893479637 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2372634141719341673, guid: 54fc5ed8159cb674cb0e239cecf0c82d, type: 3}
+  m_PrefabInstance: {fileID: 1893479636}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1925324538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4671115665440738405, guid: 073e19df29517944fab146422a742641, type: 3}
@@ -2584,6 +2778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   musicSource: {fileID: 1995204684}
   sfxSource: {fileID: 1995204685}
+  musicClips: []
 --- !u!82 &1995204684
 AudioSource:
   m_ObjectHideFlags: 0

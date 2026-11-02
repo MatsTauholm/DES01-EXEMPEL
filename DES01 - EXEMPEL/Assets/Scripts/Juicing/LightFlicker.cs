@@ -7,8 +7,8 @@ public class LightFlicker : MonoBehaviour
 {    
     [SerializeField] private float flickerIntervalMin = 0.05f;  // Minimum time between flickers
     [SerializeField] private float flickerIntervalMax = 0.5f;   // Maximum time between flickers
-    [SerializeField] private float onIntensity = 1.5f;          // Light intensity when "on"
     [SerializeField] private float offIntensity = 0.0f;         // Light intensity when "off"
+    private float onIntensity;         // Light intensity when "on"
 
     private Light2D light2D;
     private float timer;
@@ -16,6 +16,7 @@ public class LightFlicker : MonoBehaviour
     private void Start()
     {
         light2D = GetComponent<Light2D>();
+        onIntensity = light2D.intensity; // Store the initial intensity as the "on" intensity
         timer = Random.Range(flickerIntervalMin, flickerIntervalMax);
     }
 

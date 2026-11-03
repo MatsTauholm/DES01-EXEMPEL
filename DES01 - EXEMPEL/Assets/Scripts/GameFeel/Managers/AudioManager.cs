@@ -4,33 +4,38 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance; // Static reference
     [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource sfxSource;
+    [SerializeField] AudioClip[] musicClips;
 
-    private void Awake()
+    void Awake()
     {
         if (instance == null)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            instance = this; // Assign the static reference
+            DontDestroyOnLoad(gameObject); // Optional: Persist across scenes
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // Ensure only one instance exists
         }
     }
 
     // Static method to play a sound
     public void PlaySFX(AudioClip clip)
     {
-        if (clip != null)
+        sfxSource.clip = clip;
+        sfxSource.Play();
+        //if (clip != null)
         {
-            StartCoroutine(PlaySFXCoroutine(clip));  
+            PlaySFXCoroutine(clip);
         }
     }
+
     private IEnumerator PlaySFXCoroutine(AudioClip clip)
     {
         AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.clip = clip;
-
+        sfxSource.Play();
         yield return new WaitForSeconds(clip.length);
         Destroy(sfxSource);
     }

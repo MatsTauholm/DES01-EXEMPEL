@@ -7,11 +7,16 @@ using System;
 
 public class PlayerWithForce : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private float acceleration = 50f;     // Force when pressing a direction
     [SerializeField] private float deceleration = 30f;     // Force when no input, slows down
     [SerializeField] private float maxSpeed = 10f;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private ContactFilter2D groundFilter;
+
+    [Header("Audio Settings")]
+    [SerializeField] private bool PlaySounds;
+    [SerializeField] private AudioClip footSteps;
 
     private Rigidbody2D rb;
     private Animator ani;
@@ -23,6 +28,7 @@ public class PlayerWithForce : MonoBehaviour
     //Animation states
     const string PLAYER_RUN = "isRunning";
     const string PLAYER_JUMP = "isJumping";
+
 
     void Start()
     {
@@ -45,6 +51,7 @@ public class PlayerWithForce : MonoBehaviour
     {
         MirrorSprite();
         Animate();
+        PlaySFX();
     }
 
     private void MirrorSprite() //Mirror the sprite if moving left
@@ -59,6 +66,14 @@ public class PlayerWithForce : MonoBehaviour
     {
         ani.SetBool(PLAYER_RUN, moveInput != Vector2.zero);
         ani.SetBool(PLAYER_JUMP, !isGrounded);
+    }
+
+    void PlaySFX()
+    {
+        if (PlaySounds && moveInput.x != 0 && isGrounded)
+        {
+            AudioManager.instance.PlaySFX(footSteps);
+        }
     }
 
     void FixedUpdate()

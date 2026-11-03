@@ -7,9 +7,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack_Sound : MonoBehaviour
 {  
-    [SerializeField] private float attackTime;
-    [SerializeField] private SpriteRenderer swordAttackSprite;
+    [SerializeField] private Animator animator;
     private AudioSource audioSource;
+    const string PLAYER_ATTACK = "Attack";
 
     private void Awake()
     {
@@ -18,15 +18,7 @@ public class PlayerAttack_Sound : MonoBehaviour
 
     void OnAttack(InputValue button)
     {
-        StartCoroutine(Attack());
-    }
-
-    IEnumerator Attack()
-    {
-        swordAttackSprite.enabled = true;
+        animator.SetTrigger(PLAYER_ATTACK);
         audioSource.Play();
-        yield return new WaitForSeconds(attackTime);
-        swordAttackSprite.enabled = false;
-        yield return null;
     }
 }

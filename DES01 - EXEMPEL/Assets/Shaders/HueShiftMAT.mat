@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: HueShiftMAT
-  m_Shader: {fileID: -6465566751694194690, guid: c44ea594c69bb044b87c3d9eacc294fa,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 3b232a202a0802e4fbd1c83bd4bf6c6d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -25,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ad19b0c10a3c0fd4d9fd7549a3e0d83e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -42,11 +41,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DissolveAmount: 0
+    - _DissolveScale: 30
     - _HueShift: 1
     - _HueShiftAmount: 1
     - _HueShiftAnimate: 1
     - _HueShiftAnimationSpeed: 0.5
-    m_Colors: []
+    - _OutlineThickness: 0.1
+    m_Colors:
+    - White: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0.9579612, g: 0, b: 2.183991, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4834088733455326631

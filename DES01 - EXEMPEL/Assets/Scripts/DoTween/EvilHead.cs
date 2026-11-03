@@ -8,7 +8,13 @@ public class EvilHead : MonoBehaviour
 {
     [SerializeField] private Transform[] ninjaStars;
     [SerializeField] private Vector2 aimPosition;
+    [SerializeField] private Transform playerPosition;
     [SerializeField] private float minMoveTime, maxMoveTime;
+
+    [Header("Jump Settings")]
+    [SerializeField] private float jumpPower, jumpDuration;
+    [SerializeField] private int numberOfJumps;
+    [SerializeField] private DG.Tweening.Ease linearEase;
 
     void Start()
     {
@@ -25,6 +31,13 @@ public class EvilHead : MonoBehaviour
         {
             sequence.Append(ninjaStar.DOMove(aimPosition, Random.Range(minMoveTime, maxMoveTime)));
             aimPosition.y += 3;
+        }
+
+        //Append jump-tween to the sequence for each ninja star
+        foreach (var ninjaStar in ninjaStars)
+        {
+            sequence.Append(ninjaStar.DOJump(playerPosition.position, jumpPower, numberOfJumps, jumpDuration)
+               .SetEase(Ease.Linear));
         }
 
         //OnComplete callback to fade the stars

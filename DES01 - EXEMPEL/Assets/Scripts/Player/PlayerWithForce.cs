@@ -14,16 +14,12 @@ public class PlayerWithForce : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private ContactFilter2D groundFilter;
 
-    [Header("Audio Settings")]
-    [SerializeField] private bool PlaySounds;
-    [SerializeField] private AudioClip footSteps;
-
     private Rigidbody2D rb;
     private Animator ani;
 
     private Vector2 moveInput;
     private bool shouldJump;
-    private bool isGrounded;
+    public bool isGrounded;
 
     //Animation states
     const string PLAYER_RUN = "isRunning";
@@ -51,7 +47,6 @@ public class PlayerWithForce : MonoBehaviour
     {
         MirrorSprite();
         Animate();
-        PlaySFX();
     }
 
     private void MirrorSprite() //Mirror the sprite if moving left
@@ -66,14 +61,6 @@ public class PlayerWithForce : MonoBehaviour
     {
         ani.SetBool(PLAYER_RUN, moveInput != Vector2.zero);
         ani.SetBool(PLAYER_JUMP, !isGrounded);
-    }
-
-    void PlaySFX()
-    {
-        if (PlaySounds && moveInput.x != 0 && isGrounded)
-        {
-            AudioManager.instance.PlaySFX(footSteps);
-        }
     }
 
     void FixedUpdate()

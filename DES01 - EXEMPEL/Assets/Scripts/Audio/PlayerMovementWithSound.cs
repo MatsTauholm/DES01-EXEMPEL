@@ -1,61 +1,121 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.Rendering.Universal;
+using System;
 
-public class PlayerMovementWithSound : MonoBehaviour
+public class PlayerMovementWithSound
+    : MonoBehaviour
 {
-    [SerializeField] float moveSpeed, jumpSpeed;
-    [SerializeField] AudioClip footSteps;
-    [SerializeField] ContactFilter2D groundFilter;
+    [Header("Movement Settings")]
+    [SerializeField] private float acceleration = 50f;     // Force when pressing a direction
+    [SerializeField] private float deceleration = 30f;     // Force when no input, slows down
+    [SerializeField] private float maxSpeed = 10f;
+    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private ContactFilter2D groundFilter;
 
-    private bool isGrounded;
-    private bool isJumping;
-    private Vector2 moveInput;
+    [Header("Audio Settings")]
+    [SerializeField] private bool PlaySounds;
+    [SerializeField] private AudioClip footSteps;
+
     private Rigidbody2D rb;
-    private bool shouldJump;
+    private Animator ani;
+    private AudioSource audioSource;
 
-    private void Awake()
+    private Vector2 moveInput;
+    private bool shouldJump;
+    private bool isGrounded;
+
+    //Animation states
+    const string PLAYER_RUN = "isRunning";
+    const string PLAYER_JUMP = "isJumping";
+
+
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        ani = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
-    private void OnMove(InputValue value)
+    void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
     }
 
-    private void OnJump(InputValue button)
+    void OnJump()
     {
-        shouldJump = button.isPressed;
+        if (isGrounded)
+            shouldJump = true;
     }
 
-    private void Update()
+    void Update()
     {
-         Run();
+        MirrorSprite();
+        Animate();
+        PlaySFX();
     }
 
-    private void FixedUpdate()
+    private void MirrorSprite() //Mirror the sprite if moving left
+    {
+        if (moveInput.x != 0)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(moveInput.x), transform.localScale.y);
+        }
+    }
+
+    private void Animate() //Animations for running and jumping
+    {
+        ani.SetBool(PLAYER_RUN, moveInput != Vector2.zero);
+        ani.SetBool(PLAYER_JUMP, !isGrounded);
+    }
+
+    void PlaySFX()
+    {
+        if (PlaySounds && moveInput.x != 0 && isGrounded)
+        {
+            audioSource.PlayOneShot(footSteps);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        GroundCheck();
+        Move();
+        Jump();
+    }
+
+    private void GroundCheck()
     {
         isGrounded = rb.IsTouching(groundFilter);
+    }
 
-        if (shouldJump && isGrounded)
+    private void Jump()
+    {
+        if (isGrounded && shouldJump)
         {
-            rb.linearVelocity += (new Vector2(0f, jumpSpeed));
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            isGrounded = false;
             shouldJump = false;
         }
     }
 
-    private void Run()
+    private void Move()
     {
-        Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
-        rb.linearVelocity = playerVelocity;
-       
-        if (moveInput.x != 0)
+
+        if (moveInput.x != 0) //Horizontal movement
         {
-            Vector3 scale = transform.localScale;
-            scale.x = Mathf.Abs(scale.x) * Mathf.Sign(moveInput.x);
-            transform.localScale = scale;
-            AudioManager.instance.PlaySFX(footSteps);
+            rb.AddForce(new Vector2(moveInput.x * acceleration, 0f), ForceMode2D.Force); //Accelerate
+        }
+        else
+        {
+            rb.AddForce(new Vector2(-rb.linearVelocity.x * deceleration, 0f), ForceMode2D.Force); //Decelerate
         }
 
+        if (Mathf.Abs(rb.linearVelocity.x) > maxSpeed) // Clamp max horizontal velocity
+        {
+            rb.linearVelocity = new Vector2(Mathf.Sign(rb.linearVelocity.x) * maxSpeed, rb.linearVelocity.y);
+        }
     }
 }

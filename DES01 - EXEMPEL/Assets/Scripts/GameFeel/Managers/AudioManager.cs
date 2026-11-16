@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance; // Static reference
@@ -20,25 +21,27 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Static method to play a sound
-    public void PlaySFX(AudioClip clip)
-    {
-        sfxSource.clip = clip;
-        sfxSource.Play();
-        //if (clip != null)
-        {
-            PlaySFXCoroutine(clip);
-        }
-    }
 
-    private IEnumerator PlaySFXCoroutine(AudioClip clip)
+    public IEnumerator PlaySFXCoroutine(AudioClip clip, float delay)
     {
         AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.clip = clip;
         sfxSource.Play();
-        yield return new WaitForSeconds(clip.length);
+        yield return new WaitForSeconds(delay);
         Destroy(sfxSource);
     }
+
+
+    public IEnumerator PlayAudioResourceCoroutine(AudioResource resource, float delay)
+    {
+        AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
+        sfxSource.resource = resource;
+        sfxSource.Play();
+        yield return new WaitForSeconds(delay);
+        Destroy(sfxSource);
+    }
+
+
 
     public static void PlayMusic(AudioClip clip)
     {

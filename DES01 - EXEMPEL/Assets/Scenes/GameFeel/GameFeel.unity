@@ -886,7 +886,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.380169, y: -5.0331035, z: -9.871276}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1338,6 +1338,7 @@ Transform:
   - {fileID: 1554843028}
   - {fileID: 540850411}
   - {fileID: 1798357689}
+  - {fileID: 974040786}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &790448708
@@ -1352,6 +1353,7 @@ GameObject:
   - component: {fileID: 790448714}
   - component: {fileID: 790448711}
   - component: {fileID: 790448713}
+  - component: {fileID: 790448715}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1413,6 +1415,19 @@ MonoBehaviour:
   LevelTween: 1
   multiShot: 0
   bulletSpread: 0
+--- !u!114 &790448715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790448708}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db802fa749eba349863e8f0b032cba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  musicClip: {fileID: 8300000, guid: 94245a66d8189ad42af81731d9e9a3ea, type: 3}
 --- !u!1001 &870017707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1568,6 +1583,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4671115665440738405, guid: 073e19df29517944fab146422a742641, type: 3}
   m_PrefabInstance: {fileID: 915134537}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &974040785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 974040786}
+  - component: {fileID: 974040787}
+  m_Layer: 0
+  m_Name: TimelineHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &974040786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974040785}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 762565404}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &974040787
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974040785}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 8017167c8adb9af41bbc311ce7c78a4b, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 26677925694141476, guid: 8017167c8adb9af41bbc311ce7c78a4b, type: 2}
+    value: {fileID: 1995204684}
+  - key: {fileID: -7257694412622766147, guid: 8017167c8adb9af41bbc311ce7c78a4b, type: 2}
+    value: {fileID: 1656516093}
+  m_ExposedReferences:
+    m_References:
+    - ac836e4790d14cf4ebd77a11d53203a1: {fileID: 1656516091}
+    - 9bf5ac837702cd448aa5e832c32a2859: {fileID: 0}
 --- !u!1 &1002964176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,11 +1868,6 @@ Transform:
 --- !u!1 &1300246947 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 114906875048071175, guid: 65e5dcb3017944c45ba2748ace19727b, type: 3}
-  m_PrefabInstance: {fileID: 608711587}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1300246956 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7829471629103190085, guid: 65e5dcb3017944c45ba2748ace19727b, type: 3}
   m_PrefabInstance: {fileID: 608711587}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1311852195
@@ -2162,6 +2227,7 @@ GameObject:
   - component: {fileID: 1656516091}
   - component: {fileID: 1656516090}
   - component: {fileID: 1656516092}
+  - component: {fileID: 1656516093}
   m_Layer: 0
   m_Name: Follow Camera
   m_TagString: Untagged
@@ -2177,7 +2243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656516087}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.380169, y: -5.0331035, z: -9.871276}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2235,7 +2301,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 1300246956}
+    TrackingTarget: {fileID: 0}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 1
   Lens:
@@ -2282,6 +2348,28 @@ MonoBehaviour:
     FrequencyGain: 6
     Duration: 1
     m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!95 &1656516093
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656516087}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1798357688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,6 +2767,7 @@ GameObject:
   - component: {fileID: 1995204683}
   - component: {fileID: 1995204684}
   - component: {fileID: 1995204685}
+  - component: {fileID: 1995204686}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -2910,6 +2999,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!165 &1995204686
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995204681}
+  m_Enabled: 1
+  m_CutoffFrequency: 5000
+  m_HighpassResonanceQ: 1
 --- !u!1001 &2101094259
 PrefabInstance:
   m_ObjectHideFlags: 0
